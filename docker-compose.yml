@@ -1,0 +1,14 @@
+services:
+  api:
+    image: langgraph_tavily_chatbot:v1.0.0
+    # or build: .   # if you want compose to build from your Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      GOOGLE_API_KEY: "${GOOGLE_API_KEY}"
+      LANGCHAIN_API_KEY: "${LANGCHAIN_API_KEY}"
+      TAVILY_API_KEY: "${TAVILY_API_KEY}"
+    # platform optional on Apple Silicon:
+    # platform: "linux/amd64"
